@@ -5,7 +5,8 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'snapchat': '#1fb6ff'
+      'snapchat': '#fefc01',
+      'white': '#ffffff'
     },
     extend: {},
   },

@@ -1,12 +1,22 @@
 import React from 'react';
 import './index.css';
 import Webcamera from './components/Webcam';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Preview from './components/Preview';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className=' text-snapchat'>Snapchat Clone</h1>
-      <Webcamera />
+    <div className="container flex flex-col items-center justify-center bg-snapchat h-screen w-full">
+      <Router>
+        <div className="drop-shadow-md rounded-lg">
+          <Routes>
+            <Route exact path='/' element={<Webcamera />} />
+            <Route path='/preview' element={<Preview />} />
+          </Routes>
+        </div>
+      </Router>
+
+
     </div>
   );
 }
