@@ -35,8 +35,9 @@ const Webcamera = () => {
 
             <RadioButtonCheckedIcon
                 onClick={captureImage}
-                className="absolute left-[50%] bottom-0 my-3 cursor-pointer text-white -translate-x-5"
-                fontSize='large'
+                className="absolute left-[50%] bottom-0 my-3 cursor-pointer text-white -translate-x-7"
+                // fontSize='large'
+                sx={{ width: 50, height: 50 }}
             />
         </div>
     )

@@ -4,6 +4,7 @@ import Webcamera from './components/Webcam';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Preview from './components/Preview';
 import Chats from './components/Chats';
+import ViewPost from './components/ViewPost';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route exact path='/' element={<Webcamera />} />
             <Route path='/preview' element={<Preview />} />
             <Route path='/chats' element={<Chats />} />
+            <Route path='/chats/view' element={<ViewPost />} />
           </Routes>
         </div>
       </Router>

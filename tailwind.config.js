@@ -8,9 +8,12 @@ module.exports = {
       'snapchat': '#fefc01',
       'white': '#ffffff',
       'gray': '#808080',
-      'smoke': '#F5F5F5'
+      'smoke': '#F5F5F5',
+      'red': '#FF0000'
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }
