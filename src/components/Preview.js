@@ -7,11 +7,13 @@ import { AttachFile, Create, Crop, MusicNote, Note, Send, TextFields, Timer } fr
 import { v4 as uuidv4 } from 'uuid';
 import { storage, db } from '../firebase'
 import firebase from 'firebase'
+import { selectUser } from '../features/appSlice';
 
 const Preview = () => {
   const cameraImage = useSelector(selectCameraImage)
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const user = useSelector(selectUser)
 
   useEffect(() => {
     if (!cameraImage) {
@@ -33,7 +35,8 @@ const Preview = () => {
       storage.ref('posts').child(id).getDownloadURL().then((url) => {
         db.collection('posts').add({
           imageUrl: url,
-          username: "Ntami",
+          username: user.username,
+          profilePic: user.profilePic,
           read: false,
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         })
@@ -43,7 +46,7 @@ const Preview = () => {
   }
 
   return (
-    <div className='relative'>
+    <div className='relative rounded-lg border-[2px] border-white'>
       <CloseIcon onClick={closePreview} className="absolute top-0 m-4 text-white cursor-pointer font-bold" fontSize='large' />
       <div className="flex flex-col space-y-4 text-white absolute right-0 m-4 cursor-pointer">
         <TextFields />

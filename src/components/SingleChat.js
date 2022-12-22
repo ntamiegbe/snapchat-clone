@@ -30,7 +30,7 @@ const SingleChat = ({ id, username, timestamp, read, imageUrl, profilePic }) => 
       <Avatar src={profilePic} />
       <div className="flex-1 px-4">
         <h4 className='text-[13px] font-semibold'>{username}</h4>
-        <p className='text-[10px]'>Tap to load - <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} /></p>
+        <p className='text-[10px]'>{!read ? "Tap to load" : "Opened"} - <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} /></p>
       </div>
       {!read && <StopRounded className='text-red' />}
     </div>

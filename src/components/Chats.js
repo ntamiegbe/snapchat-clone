@@ -5,10 +5,13 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { db } from '../firebase';
 import SingleChat from './SingleChat';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/appSlice';
 
 const Chats = () => {
 
     const [posts, setPosts] = useState([])
+    const user = useSelector(selectUser)
 
     useEffect(() => {
         db.collection('posts').orderBy('timestamp', 'desc').onSnapshot((snapshot) => setPosts(snapshot.docs.map((doc) => ({
@@ -27,7 +30,7 @@ const Chats = () => {
         <div className='relative w-[350px] h-[420px]'>
             <div className="flex justify-between items-center bg-white h-14 p-4">
                 <div className="flex items-center space-x-2">
-                    <Avatar sx={{ width: 30, height: 30 }} className='cursor-pointer' />
+                    <Avatar sx={{ width: 30, height: 30 }} src={user.profilePic} className='cursor-pointer' />
                     <Search sx={{ width: 25, height: 25 }} className='bg-gray m-1 p-1 rounded-full text-smoke cursor-pointer' />
                 </div>
                 <div className=" font-bold">Chat</div>
